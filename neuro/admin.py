@@ -6,6 +6,7 @@ class PageAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['title']}),
         ('Category', {'fields': ['category']}),
+        ('Text', {'fields': ['text']}),
         ('URL', {'fields': ['url']}),
         ('Views', {'fields': ['views']}),
         ('Likes', {'fields': ['likes']}),
