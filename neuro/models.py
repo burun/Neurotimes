@@ -17,6 +17,7 @@ class Page(models.Model):
     title = models.CharField(max_length=128)
     text = models.CharField(max_length=12800)
     url = models.URLField()
+    photo = models.ImageField(upload_to='photos/%Y/%m/%d')
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
 

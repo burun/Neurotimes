@@ -8,6 +8,7 @@ class PageAdmin(admin.ModelAdmin):
         ('Category', {'fields': ['category']}),
         ('Text', {'fields': ['text']}),
         ('URL', {'fields': ['url']}),
+        ('Photo', {'fields': ['photo']}),
         ('Views', {'fields': ['views']}),
         ('Likes', {'fields': ['likes']}),
     ]
