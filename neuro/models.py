@@ -11,15 +11,22 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    def date_id(self):
+        return (str(self.name[:4]) + str(self.name[5:7]) + str(self.name[8:10]))
+
 
 class Page(models.Model):
     category = models.ForeignKey(Category)
-    title = models.CharField(max_length=128)
+    title = models.CharField(max_length=128, unique=True)
     text = models.CharField(max_length=12800)
-    url = models.URLField()
+    url = models.URLField(blank=True)
     photo = models.ImageField(upload_to='photos/%Y/%m/%d')
+    order = models.CharField(max_length=128)
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
+
+    def date_order(self):
+        return str(self.category.date_id + self.order)
