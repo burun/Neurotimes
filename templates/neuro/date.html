@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block body_block %}
+    <div class="row">
+
+        <!--list details column-->
+        {% for category in categories %}
+          <div class="col-sm-4 bootcards-cards hidden-xs">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">{{ category.name }}</h3>
+              </div>
+              <div class="list-group">
+                  {% for page in pages %}
+                      {% if page.category == category %}
+                          <div class="list-group-item">
+                            <h5 class="list-group-item-heading"><a href="/neuro/page/{{ category.date_id }}/{{ page.order }}/">{{ page.title }}</h5>
+                          </div>
+                      {% endif %}
+                  {% endfor %}
+              </div>
+            </div><!--end rich text card-->
+          </div><!--list-details-->
+        {% endfor %}
+
+    </div><!--row-->
+{% endblock %}
