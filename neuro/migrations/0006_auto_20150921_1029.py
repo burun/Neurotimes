@@ -2,18 +2,19 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
+import datetime
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('neuro', '0003_auto_20150918_0744'),
+        ('neuro', '0005_auto_20150921_1015'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='page',
-            name='order',
-            field=models.CharField(max_length=128),
+            model_name='category',
+            name='date',
+            field=models.DateField(default=datetime.datetime(2015, 9, 21, 10, 29, 3, 440811)),
         ),
     ]

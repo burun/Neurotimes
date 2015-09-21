@@ -1,3 +1,20 @@
 from django.shortcuts import render
+from neuro.models import Category, Page
+from datetime import datetime
 
-# Create your views here.
+
+def index(request):
+    category_list = Category.objects.order_by('-date')
+    page_list = Page.objects.all()
+    context_dict = {'categories': category_list,
+                    'pages': page_list,
+                    }
+
+    return render(request, 'neuro/date.html', context_dict)
+
+
+def page(request, date, order):
+    page.output = Page.objects.get(category__date=date, order=order)
+    context_dict = {'page': page.output,
+                    'category': page.output.category}
+    return render(request, 'neuro/page.html', context_dict)
