@@ -18,3 +18,10 @@ def page(request, date, order):
     context_dict = {'page': page.output,
                     'category': page.output.category}
     return render(request, 'neuro/page.html', context_dict)
+
+
+def card(request):
+    page_list = Page.objects.order_by('-date')
+    context_dict = {'pages': page_list,
+                    }
+    return render(request, 'neuro/card.html', context_dict)

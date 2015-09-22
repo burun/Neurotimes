@@ -10,6 +10,8 @@
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'css/bootcards-desktop.min.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'css/page.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootplus.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'css/bootplus-responsive.min.css' %}" rel="stylesheet" media="screen">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -50,7 +52,7 @@
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li class="active">
-            <a href="/neuro">
+            <a href="/neuro/card">
               <i class="fa fa-dashboard"></i> 卡片
             </a>
           </li>
@@ -126,9 +128,11 @@
 
     <!-- Bootcards JS -->
     <script src="{% static 'js/bootcards.js' %}"></script>
+    <script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
 
     <!--recommended: FTLabs FastClick library-->
     <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.3/fastclick.min.js"></script>
+
 
 </body>
 </html>

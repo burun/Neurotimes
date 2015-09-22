@@ -23,9 +23,9 @@ class Page(models.Model):
     url = models.URLField(blank=True)
     photo = models.ImageField(upload_to='photos/%Y/%m/%d')
     order = models.CharField(max_length=128)
+    date = models.DateField(auto_now_add=True)
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
-
