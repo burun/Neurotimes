@@ -41,7 +41,7 @@
         <i class="fa fa-lg fa-bars"></i><span>Menu</span>
       </button>
 
-      <a class="navbar-brand" title="Bootcards Starter" href="/neuro">NeuroTimes</a>
+      <a class="navbar-brand" title="Bootcards Starter" href="/neuro/card">NeuroTimes</a>
 
       <!--right aligned button-->
 <!--       <button type="button" class="btn btn-warning navbar-right hidden-sm">
@@ -49,25 +49,7 @@
       </button> -->
 
       <!--navbar menu options: shown on desktop only -->
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li class="active">
-            <a href="/neuro/card">
-              <i class="fa fa-dashboard"></i> 卡片
-            </a>
-          </li>
-          <li>
-            <a href="/neuro">
-              <i class="fa fa-building-o"></i> 按日期浏览
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa fa-font"></i> 联系
-            </a>
-          </li>
-        </ul>
-      </div>
+      {% block nav_block %}{% endblock %}
     </div>
   </div>
 
@@ -120,6 +102,13 @@
     <div class="container">
       {% block body_block %}{% endblock %}
     </div>
+
+      <hr>
+        <div class="container">
+          <div class="col-md-12 text-center">
+          <p><a href="" target="_ext">© 2014-2015 NeuroTimes</a><br><a href="" target="_ext">Email</a></p>
+          </div>
+        </div>
 
     <!-- Bootstrap & jQuery core JavaScript
     ================================================== -->

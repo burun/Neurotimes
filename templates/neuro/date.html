@@ -2,6 +2,28 @@
 
 {% load static %}
 
+{% block nav_block %}
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/neuro/card">
+              <i class="fa fa-dashboard"></i> 卡片
+            </a>
+          </li>
+          <li  class="active">
+            <a href="/neuro">
+              <i class="fa fa-building-o"></i> 按日期浏览
+            </a>
+          </li>
+          <li>
+            <a href="/neuro/about">
+              <i class="fa fa-font"></i> 关于
+            </a>
+          </li>
+        </ul>
+      </div>
+{% endblock %}
+
 {% block body_block %}
     <div class="row">
 

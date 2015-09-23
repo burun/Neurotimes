@@ -2,10 +2,30 @@
 
 {% load static %}
 
+{% block nav_block %}
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <a href="/neuro/card">
+              <i class="fa fa-dashboard"></i> 卡片
+            </a>
+          </li>
+          <li>
+            <a href="/neuro">
+              <i class="fa fa-building-o"></i> 按日期浏览
+            </a>
+          </li>
+          <li>
+            <a href="/neuro/about">
+              <i class="fa fa-font"></i> 关于
+            </a>
+          </li>
+        </ul>
+      </div>
+{% endblock %}
+
 {% block body_block %}
     <!--main-->
-    <div class="container" id="main">
-
 
         <div class="row grid js-masonry"   data-masonry-options='{ "itemSelector": ".grid-item", "columWidth": 200 }'>
         {% for page in pages %}
@@ -13,69 +33,44 @@
           <div class="col-md-4 col-sm-6 grid-item">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h4>{{ page.title }}</h4>
-                </div>
+                  <h4><a href="/neuro/page/{{ page.category.date_id }}/{{ page.order }}/">{{ page.title }}</a></h4>
+                </div><!--/panel-heading-->
                 <div class="panel-body">
-                  <p>
-                      {% autoescape off %}
-                         {{page.text|truncatechars:100}}
-                      {% endautoescape %}
-                      <a href="/neuro/page/{{ page.category.date_id }}/{{ page.order }}/">read more</a>
-                  </p>
-                </div>
-            </div>
-          </div>
+                  {% if page.photo %}
+                    <div class="panel-photo">
+                      <img class="img-responsive" src={{ page.photo.url }} alt="">
+                    </div><!--/panel-photo-->
+                  {% endif %}
+                  <div class="panel-text">
+                    <p>
+                        {% autoescape off %}
+                           {{page.text|truncatechars:100}}
+                        {% endautoescape %}
+                        <a href="/neuro/page/{{ page.category.date_id }}/{{ page.order }}/">read more</a>
+                    </p>
+                  </div><!--/panel-text-->
+                  <div class="panel-date text-right">
+                    <p>
+                    {{ page.category.date_id }}
+                    </p>
+                  </div><!--/panel-date-->
+                  <hr>
+                  <div class="panel-social">
+                    <form>
+                    <div class="input-group">
+                    <div class="input-group-btn">
+                    <button class="btn btn-default">+1</button><button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Add a comment..">
+                    </div>
+                    </form>
+                  </div><!--/panel-social-->
+            </div><!--/panel-body-->
+          </div><!--/panel-default-->
+          </div><!--/grid-item-->
 
         {% endfor %}
-        </div>
-
-<!--         <div id="masonry" class="grid">
-          <div class="grid-item"><img src="http://lorempixel.com/200/100/abstract"></div>
-          <div class="grid-item"><img src="http://lorempixel.com/200/200/abstract"></div>
-          <div class="grid-item"><img src="http://lorempixel.com/200/500/abstract"></div>
-          <div class="grid-item"><img src="http://lorempixel.com/200/200/abstract"></div>
-          <div class="grid-item"><img src="http://lorempixel.com/200/200/abstract"></div>
-          <div class="grid-item"><img src="http://lorempixel.com/200/100/abstract"></div>
-          <div class="grid-item"><img src="http://lorempixel.com/200/300/abstract"></div>
-          <div class="grid-item"><img src="http://lorempixel.com/200/200/abstract"></div>
-          <div class="grid-item"><img src="http://lorempixel.com/200/150/abstract"></div>
-          <div class="grid-item"><img src="http://lorempixel.com/200/200/abstract"></div>
-          <div class="grid-item"><img src="http://lorempixel.com/200/300/abstract"></div>
-        </div> -->
-
-<!--       <div class="col-md-4 col-sm-6">
-
-        <div class="panel panel-default">
-           <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Stackoverflow</h4></div>
-          <div class="panel-body">
-            <img src="//placehold.it/150x150" class="img-circle pull-right"> <a href="#">Keyword: Bootstrap</a>
-            <div class="clearfix"></div>
-            <hr>
-
-            <p>If you're looking for help with Bootstrap code, the <code>twitter-bootstrap</code> tag at <a href="http://stackoverflow.com/questions/tagged/twitter-bootstrap">Stackoverflow</a> is a good place to find answers.</p>
-
-            <hr>
-            <form>
-            <div class="input-group">
-            <div class="input-group-btn">
-            <button class="btn btn-default">+1</button><button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
-            </div>
-            <input type="text" class="form-control" placeholder="Add a comment..">
-            </div>
-            </form>
-
-          </div>
-         </div> -->
-
-      </div><!--/container-->
+        </div><!--/grid-->
 
 
-      <hr>
-      <div class="col-md-12 text-center"><p><a href="http://www.bootply.com/download/90113" target="_ext">Download Google Plus Style Template</a><br><a href="http://bootply.com/templates" target="_ext">More Bootstrap Templates by @Bootply</a></p></div>
-      <hr>
-
-
-
-
-        <!-- JavaScript jQuery code from Bootply.com editor -->
 {% endblock %}

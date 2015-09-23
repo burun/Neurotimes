@@ -25,3 +25,7 @@ def card(request):
     context_dict = {'pages': page_list,
                     }
     return render(request, 'neuro/card.html', context_dict)
+
+def about(request):
+    context_dict = {}
+    return render(request, 'neuro/about.html', context_dict)
