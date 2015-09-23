@@ -3,7 +3,7 @@ from neuro.models import Category, Page
 from datetime import datetime
 
 
-def index(request):
+def date(request):
     category_list = Category.objects.order_by('-date')
     page_list = Page.objects.all()
     context_dict = {'categories': category_list,
