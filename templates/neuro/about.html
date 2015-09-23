@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block nav_block %}
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/neuro/card">
+              <i class="fa fa-dashboard"></i> 卡片
+            </a>
+          </li>
+          <li>
+            <a href="/neuro">
+              <i class="fa fa-building-o"></i> 按日期浏览
+            </a>
+          </li>
+          <li class="active">
+            <a href="/neuro/about">
+              <i class="fa fa-font"></i> 关于
+            </a>
+          </li>
+        </ul>
+      </div>
+{% endblock %}
+
+{% block body_block %}
+    <div class="row">
+      <div class="col-lg-2">
+      </div>
+
+      <div class="col-lg-8">
+        <h2>
+          NeuroTimes是什么？
+        </h2>
+        <p>
+          我用来收集Neuroscience信息的网站，也是我学习django的一个练手项目。
+        </p>
+
+        <h2>
+          如何联系我？
+        </h2>
+
+        <h2>
+          大事记
+        </h2>
+      </div>
+
+      <div class="col-lg-2">
+      </div>
+    </div><!--row-->
+{% endblock %}
