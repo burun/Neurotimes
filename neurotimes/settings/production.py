@@ -1,7 +1,7 @@
 from .base import *
 
 # HOST CONFIGURATION
-ALLOWED_HOSTS = [
-    '.neurotim.es',
-    '.neurotim.es.',
-]
+ALLOWED_HOSTS = []
+
+########## SECRET CONFIGURATION
+SECRET_KEY = ''
