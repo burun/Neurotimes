@@ -1,5 +1,0 @@
-Django==1.8.3
-django-ckeditor==5.0.2
-Pillow==2.9.0
-psycopg2==2.6.1
-virtualenv==13.1.0

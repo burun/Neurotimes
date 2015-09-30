@@ -23,9 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '7vpwd$-(!z*gw%)agvh9ck#c#t7ynu-allezzsgg3zg^5eycc7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '188.226.234.129',
+    '.neurotim.es',
+    '.neurotim.es.',
+]
 
 
 # Application definition
@@ -46,10 +50,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
 )
 
 ROOT_URLCONF = 'neurotimes.urls'
@@ -78,12 +80,17 @@ WSGI_APPLICATION = 'neurotimes.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'neuro_db',                      # Or path to database file if using sqlite3.
+        # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # Or path to database file if using sqlite3.
+        'NAME': 'neuro_db',
         'USER': 'neuro_user',                      # Not used with sqlite3.
-        'PASSWORD': 'i683Z4W5BC8iS2e',                  # Not used with sqlite3.
-        'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
+        # Not used with sqlite3.
+        'PASSWORD': 'i683Z4W5BC8iS2e',
+        # Set to empty string for localhost. Not used with sqlite3.
+        'HOST': 'localhost',
+        # Set to empty string for default. Not used with sqlite3.
+        'PORT': '5432',
     }
 }
 
@@ -118,4 +125,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'ckeditor/uploads')
 CKEDITOR_JQUERY_URL = "js/jquery-2.1.4.min.js"
-
