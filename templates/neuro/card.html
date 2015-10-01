@@ -38,7 +38,7 @@
                 <div class="panel-body">
                   {% if page.photo %}
                     <div class="panel-photo">
-                      <img class="img-responsive" src={{ page.photo.url }} alt="">
+                      <a href="/page/{{ page.category.date_id }}/{{ page.order }}/"><img class="img-responsive" src={{ page.photo.url }} alt=""></a>
                     </div><!--/panel-photo-->
                   {% endif %}
                   <div class="panel-text">
