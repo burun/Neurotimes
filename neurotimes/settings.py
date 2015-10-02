@@ -26,7 +26,7 @@ SECRET_KEY = '7vpwd$-(!z*gw%)agvh9ck#c#t7ynu-allezzsgg3zg^5eycc7'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '188.226.234.129',
+    '45.55.31.41',
     '.neurotim.es',
     '.neurotim.es.',
 ]
