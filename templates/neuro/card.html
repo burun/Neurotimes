@@ -26,10 +26,9 @@
 
 {% block body_block %}
     <!--main-->
-
+      <div class="container">
         <div class="row grid js-masonry"   data-masonry-options='{ "itemSelector": ".grid-item", "columWidth": 200 }'>
         {% for page in pages %}
-
           <div class="col-md-4 col-sm-6 grid-item">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -71,6 +70,6 @@
 
         {% endfor %}
         </div><!--/grid-->
-
+      </div><!--/container-->
 
 {% endblock %}

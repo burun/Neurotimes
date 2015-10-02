@@ -25,6 +25,7 @@
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
+        <a class="navbar-brand" title="Bootcards Starter" href="/card">NeuroTimes</a>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
@@ -41,7 +42,7 @@
         <i class="fa fa-lg fa-bars"></i><span>Menu</span>
       </button>
 
-      <a class="navbar-brand" title="Bootcards Starter" href="/card">NeuroTimes</a>
+
 
       <!--right aligned button-->
 <!--       <button type="button" class="btn btn-warning navbar-right hidden-sm">
@@ -53,62 +54,17 @@
     </div>
   </div>
 
-  <!-- slide in off canvas menu (mobile only) -->
-  <nav class="navmenu offcanvas offcanvas-left">
-    <ul class="nav">
-      <li>
-        <a href="#">
-          <i class="fa fa-fw fa-dashboard"></i>Dashboard
-        </a>
-      </li>
-      <li class="active">
-        <a href="starter-template.html">
-          <i class="fa fa-fw fa-users"></i>Contacts
-        </a>
-      </li>
-      <li>
-        <a href="az-picker.html">
-          <i class="fa fa-fw fa-font"></i>AZ Picker (Android)
-        </a>
-      </li>
-      <li>
-        <a href="double-navbar.html">
-          <i class="fa fa-lg fa-bars"></i>Navbar (desktop)
-        </a>
-      </li>
-
-      <!--option with submenu-->
-      <li class="collapse litop4">
-        <a href="#otherControls" class="bootcards-parent" data-toggle="collapse" data-parent=".collapse">
-          <i class="fa fa-lg fa-fw fa-chevron-circle-right"></i>&nbsp;Settings
-        </a>
-        <div id="otherControls" class="collapse in">
-          <ul class="nav navmenu-nav"><li >
-            <a href="#" ><i class="fa fa-lg fa-fw fa-cog"></i>&nbsp;General</a></li>
-          <li>
-            <a href="#"><i class="fa fa-lg fa-fw fa-user"></i>&nbsp;Account</a>
-          </li>
-           <li>
-            <a href="#"><i class="fa fa-lg fa-fw fa-refresh"></i>&nbsp;Sync</a>
-          </li>
-          </ul>
-        </div>
-      </li>
-
-    </ul>
-
-  </nav><!--nav-->
 
     <div class="container">
       {% block body_block %}{% endblock %}
     </div>
 
-      <hr>
-        <div class="container">
-          <div class="col-md-12 text-center">
-          <p><a href="" target="_ext">© 2014-2015 NeuroTimes</a><br><a href="" target="_ext">Email</a></p>
-          </div>
-        </div>
+    <hr>
+    <div class="container">
+      <div class="col-md-12 text-center">
+      <p><a href="" target="_ext">© 2014-2015 NeuroTimes</a><br><a href="" target="_ext">Email</a></p>
+      </div>
+    </div>
 
     <!-- Bootstrap & jQuery core JavaScript
     ================================================== -->
@@ -121,7 +77,6 @@
 
     <!--recommended: FTLabs FastClick library-->
     <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.3/fastclick.min.js"></script>
-
 
 </body>
 </html>
