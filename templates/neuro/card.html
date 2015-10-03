@@ -37,7 +37,7 @@
                 <div class="panel-body">
                   {% if page.photo %}
                     <div class="panel-photo">
-                      <a href="/page/{{ page.category.date_id }}/{{ page.order }}/"><img class="img-responsive" src={{ page.photo.url }} alt=""></a>
+                      <a href="/page/{{ page.category.date_id }}/{{ page.order }}/"><img class="img-responsive center-block" src={{ page.photo.url }} alt=""></a>
                     </div><!--/panel-photo-->
                   {% endif %}
                   <div class="panel-text">
@@ -53,17 +53,6 @@
                     {{ page.category.date_id }}
                     </p>
                   </div><!--/panel-date-->
-                  <hr>
-                  <div class="panel-social">
-                    <form>
-                    <div class="input-group">
-                    <div class="input-group-btn">
-                    <button class="btn btn-default">+1</button><button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Add a comment..">
-                    </div>
-                    </form>
-                  </div><!--/panel-social-->
             </div><!--/panel-body-->
           </div><!--/panel-default-->
           </div><!--/grid-item-->
