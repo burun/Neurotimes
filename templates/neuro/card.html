@@ -25,9 +25,22 @@
 {% endblock %}
 
 {% block body_block %}
+    <script type="text/javascript">
+      var $container = jQuery('#masonry-grid');
+      $('.grid').masonry({
+        // options
+        itemSelector: '.grid-item',
+        columnWidth: 200
+      });
+      // layout Masonry after each image loads
+      $grid.imagesLoaded().progress( function() {
+        $grid.masonry('layout');
+      });
+    </script>
+
     <!--main-->
       <div class="container">
-        <div class="row grid js-masonry"   data-masonry-options='{ "itemSelector": ".grid-item", "columWidth": 200 }'>
+        <div class="row grid js-masonry">
         {% for page in pages %}
           <div class="col-md-4 col-sm-6 grid-item">
             <div class="panel panel-default">
