@@ -21,7 +21,7 @@ def page(request, date, order):
 
 
 def card(request):
-    page_list = Page.objects.order_by('-date')
+    page_list = Page.objects.order_by('-id')
     context_dict = {'pages': page_list,
                     }
     return render(request, 'neuro/card.html', context_dict)
