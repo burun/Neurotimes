@@ -45,12 +45,12 @@
           <div class="col-md-4 col-sm-6 grid-item">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h4><a href="/page/{{ page.category.date_id }}/{{ page.order }}/">{{ page.title }}</a></h4>
+                  <h4><a href="/page/{{ page.category.date_id }}/{{ page.id }}/">{{ page.title }}</a></h4>
                 </div><!--/panel-heading-->
                 <div class="panel-body">
                   {% if page.photo %}
                     <div class="panel-photo">
-                      <a href="/page/{{ page.category.date_id }}/{{ page.order }}/"><img class="img-responsive center-block" src={{ page.photo.url }} alt=""></a>
+                      <a href="/page/{{ page.category.date_id }}/{{ page.id }}/"><img class="img-responsive center-block" src={{ page.photo.url }} alt=""></a>
                     </div><!--/panel-photo-->
                   {% endif %}
                   <div class="panel-text">
@@ -58,7 +58,7 @@
                         {% autoescape off %}
                            {{page.text|truncatechars:100}}
                         {% endautoescape %}
-                        <a href="/page/{{ page.category.date_id }}/{{ page.order }}/">read more</a>
+                        <a href="/page/{{ page.category.date_id }}/{{ page.id }}/">read more</a>
                     </p>
                   </div><!--/panel-text-->
                   <div class="panel-date text-right">

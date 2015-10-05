@@ -13,8 +13,8 @@ def date(request):
     return render(request, 'neuro/date.html', context_dict)
 
 
-def page(request, date, order):
-    page.output = Page.objects.get(category__date=date, order=order)
+def page(request, date, id):
+    page.output = Page.objects.get(category__date=date, id=id)
     context_dict = {'page': page.output,
                     'category': page.output.category}
     return render(request, 'neuro/page.html', context_dict)
