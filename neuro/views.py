@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from neuro.models import Category, Page
 from datetime import datetime
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def date(request):
@@ -22,9 +23,20 @@ def page(request, date, id):
 
 def card(request):
     page_list = Page.objects.order_by('-id')
-    context_dict = {'pages': page_list,
-                    }
+    paginator = Paginator(page_list, 6)
+    page = request.GET.get('page')
+    try:
+        cards = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        cards = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        cards = paginator.page(paginator.num_pages)
+    context_dict = {'cards': cards}
+
     return render(request, 'neuro/card.html', context_dict)
+
 
 def about(request):
     context_dict = {}
