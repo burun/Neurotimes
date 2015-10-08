@@ -41,28 +41,28 @@
                 <!-- Title -->
                 <h3>{{ page.title }}</h3>
 
-                <!-- Author -->
-                <h5 class="lead">
-                    by <a href="#">Liang</a>
-                </h5>
-
                 <hr>
                 <!-- Date/Time -->
                 <div class="row">
                     <div class="col-md-6">
                         <p><span class="glyphicon glyphicon-time"></span> {{ category.date }}</p>
                     </div>
-                    {% if page.url %}
-                    <div class="col-md-6 text-right">
-                    <a href="{{ page.url }}" class="pull-right btn btn-info" role="button">原文链接</a>
+                    <div class="btn-toolbar pull-right">
+                        {% if page.url %}
+<!--                         <div class="col-md-6 text-right"> -->
+                        <a href="{{ page.url }}" class="btn btn-info" role="button">原文链接</a>
+                        {% endif %}
+                        {% if page.pdf %}
+                        <a href="{{ page.pdf }}" class="btn btn-warning" role="button">PDF版(免翻墙)</a>
+                        {% endif %}
                     </div>
-                    {% endif %}
                 </div>
                 <hr>
 
                 <!-- Preview Image -->
+                {% if page.photo %}
                 <img class="img-responsive center-block" src={{ page.photo.url }} alt="">
-
+                {% endif %}
                 <hr>
 
                 <!-- Post Content -->
