@@ -28,8 +28,9 @@
 
     <!--main-->
       <div class="container">
-        <div class="row grid">
+        <div class="row grid js-masonry"   data-masonry-options='{ "itemSelector": ".grid-item", "columWidth": 200 }'>
         {% for card in cards %}
+
           <div class="col-md-4 col-sm-6 grid-item">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -38,7 +39,7 @@
                 <div class="panel-body">
                   {% if card.photo %}
                     <div class="panel-photo">
-                      <a href="/page/{{ card.category.date_id }}/{{ card.id }}/"><img class="img-responsive center-block" src={{ card.photo.url }} alt=""></a>
+                      <a href="/page/{{ card.category.date_id }}/{{ card.id }}/"><img class="img-responsive" src={{ card.photo.url }} alt=""></a>
                     </div><!--/panel-photo-->
                   {% endif %}
                   <div class="panel-text">
@@ -54,30 +55,31 @@
                     {{ card.category.date_id }}
                     </p>
                   </div><!--/panel-date-->
-
+                  <hr>
             </div><!--/panel-body-->
           </div><!--/panel-default-->
           </div><!--/grid-item-->
 
         {% endfor %}
         </div><!--/grid-->
-
-        <div class="text-center">
-            <div class="pagination">
-                {% if cards.has_previous %}
-                    <a href="?page={{ cards.previous_page_number }}">上一页</a>
-                {% endif %}
-
-                <span class="current">
-                    第{{ cards.number }}页
-                </span>
-
-                {% if cards.has_next %}
-                    <a href="?page={{ cards.next_page_number }}">下一页</a>
-                {% endif %}
-            </div>
-        </div>
-
       </div><!--/container-->
+
+      <div class="container-pagination">
+                <div class="text-center">
+                  <div class="pagination">
+                      {% if cards.has_previous %}
+                          <a href="?page={{ cards.previous_page_number }}">上一页</a>
+                      {% endif %}
+
+                      <span class="current">
+                          第{{ cards.number }}页
+                      </span>
+
+                      {% if cards.has_next %}
+                          <a href="?page={{ cards.next_page_number }}">下一页</a>
+                      {% endif %}
+                  </div>
+              </div>
+      </div>
 
 {% endblock %}
