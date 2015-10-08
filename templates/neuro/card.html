@@ -28,8 +28,7 @@
 
     <!--main-->
       <div class="container">
-
-        <div class="row grid">
+        {% if forloop.first %}<div class="row grid">{% endif %}
           {% for card in cards %}
           <div class="col-md-4 col-sm-6 grid-item">
 
@@ -46,7 +45,7 @@
                   <div class="panel-text">
                     <p>
                         {% autoescape off %}
-                           {{card.text|truncatechars:100}}
+                           {{card.text|slice:":100"}}
                         {% endautoescape %}
                         <a href="/page/{{ card.category.date_id }}/{{ card.id }}/">read more</a>
                     </p>
@@ -60,17 +59,13 @@
             </div><!--/panel-default-->
 
           </div>
-          {% if forloop.counter|divisibleby:3 %}
-        </div>
-        <div class="row">
-          {% endif %}
+          {% if forloop.counter|divisibleby:3 and not forloop.last %}</div><div class="row grid">{% endif %}
+          {% if forloop.last %}</div>{% endif %}
           {% endfor %}
         </div>
-
-
       </div><!--/container-->
 
-      <div class="container-pagination">
+      <div class="container">
                 <div class="text-center">
                   <div class="pagination">
                       {% if cards.has_previous %}
@@ -85,7 +80,7 @@
                           <a href="?page={{ cards.next_page_number }}">下一页</a>
                       {% endif %}
                   </div>
-              </div>
-      </div>
+                </div>
+        </div>
 
 {% endblock %}
