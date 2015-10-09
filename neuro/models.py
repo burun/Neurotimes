@@ -1,6 +1,7 @@
 from django.utils import timezone
 from django.db import models
 from ckeditor.fields import RichTextField
+from taggit.managers import TaggableManager
 
 
 class Category(models.Model):
@@ -26,6 +27,7 @@ class Page(models.Model):
     date = models.DateTimeField(default=timezone.now)
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
+    tags = TaggableManager()
 
     def __str__(self):
         return self.title

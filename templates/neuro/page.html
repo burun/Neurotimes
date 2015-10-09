@@ -17,7 +17,7 @@
           </li>
           <li>
             <a href="/about">
-              <i class="fa fa-font"></i> 关于
+              <i class="fa fa-font"></i> 关于这里
             </a>
           </li>
         </ul>
@@ -71,6 +71,14 @@
                    {{page.text}}
                 {% endautoescape %}
                 </p>
+
+                <div class="row">
+                    <div class="col-lg-12 label-toolbar">
+                        {% for tag in page.tags.all %}
+                        <span class="label label-primary">{{ tag.name }}</span >
+                        {% endfor %}
+                    </div>
+                </div>
                 <hr>
                 <div>
                     <p>分享到</p>

@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'neuro',
     'ckeditor',
+    'taggit',
 )
 
 MIDDLEWARE_CLASSES = (
