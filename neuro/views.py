@@ -6,7 +6,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def date(request):
     category_list = Category.objects.order_by('-date')
-    page_list = Page.objects.all()
+    page_list = Page.objects.order_by('-id')
     context_dict = {'categories': category_list,
                     'pages': page_list,
                     }
@@ -23,7 +23,7 @@ def page(request, date, id):
 
 def card(request):
     page_list = Page.objects.order_by('-id')
-    paginator = Paginator(page_list, 6)
+    paginator = Paginator(page_list, 9)
     page = request.GET.get('page')
     try:
         cards = paginator.page(page)

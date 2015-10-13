@@ -25,6 +25,7 @@
 {% endblock %}
 
 {% block body_block %}
+  <div class="container">
     <div class="row">
 
         <!--list details column-->
@@ -38,7 +39,7 @@
                   {% for page in pages %}
                       {% if page.category == category %}
                           <div class="list-group-item">
-                            <h5 class="list-group-item-heading"><a href="/page/{{ category.date_id }}/{{ page.id }}/">{{ page.title }}</h5>
+                            <h5 class="list-group-item-heading"><a href="/page/{{ category.date_id }}/{{ page.id }}/">{{ page.title }}</a></h5>
                           </div>
                       {% endif %}
                   {% endfor %}
@@ -48,4 +49,5 @@
         {% endfor %}
 
     </div><!--row-->
+  </div>
 {% endblock %}
