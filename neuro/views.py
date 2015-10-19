@@ -41,3 +41,8 @@ def card(request):
 def about(request):
     context_dict = {}
     return render(request, 'neuro/about.html', context_dict)
+
+
+def message(request):
+    context_dict = {}
+    return render(request, 'neuro/message.html', context_dict)

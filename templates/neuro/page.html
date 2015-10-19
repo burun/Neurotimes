@@ -20,6 +20,11 @@
               <i class="fa fa-font"></i> 关于这里
             </a>
           </li>
+          <li>
+            <a href="/message">
+              <i class="fa fa-comment-o"></i> 留言板
+            </a>
+          </li>
         </ul>
       </div>
 {% endblock %}
@@ -88,6 +93,19 @@
                     <span class='st_pinterest_large' displayText='Pinterest'></span>
                 </div>
 
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES * * */
+                var disqus_shortname = 'neurotimes';
+
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
             </div>
 

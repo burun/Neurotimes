@@ -7,4 +7,5 @@ urlpatterns = patterns('',
                        url(r'^page/(?P<date>([0-9]{4}-[0-9]{2}-[0-9]{2}))/(?P<id>[0-9]{1,})/$', views.page, name='page'),
                        url(r'^card/$', views.card, name='card'),
                        url(r'^about/$', views.about, name='about'),
+                       url(r'^message/$', views.message, name='message'),
                        )
