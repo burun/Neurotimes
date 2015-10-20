@@ -13,6 +13,24 @@ footer {
 }
 
 .grid-item {
-    width: 33%;
+    float: left;
+    position: relative;
 }
 
+.grid-sizer { width: 33.33%; }
+.grid-item { width: 33.33%; }
+
+@media screen and (min-width: 993px) {
+  .grid-sizer { width: 33.33%; }
+  .grid-item { width: 33.33%; }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  .grid-sizer { width: 50%; }
+  .grid-item { width: 50%; }
+}
+
+@media screen and (max-width: 768px) {
+  .grid-sizer { width: 100%; }
+  .grid-item { width: 100%; }
+}
