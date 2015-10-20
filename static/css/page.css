@@ -12,3 +12,7 @@ footer {
     margin: 50px 0;
 }
 
+.grid-item {
+    width: 33%;
+}
+
