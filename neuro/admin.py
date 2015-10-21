@@ -10,6 +10,7 @@ class PageAdmin(admin.ModelAdmin):
         ('Text', {'fields': ['text']}),
         ('URL', {'fields': ['url']}),
         ('Photo', {'fields': ['photo']}),
+        ('Credits', {'fields': ['photo_legend']}),
         ('PDF', {'fields': ['pdf']}),
         ('tags', {'fields': ['tags']}),
         ('Views', {'fields': ['views']}),

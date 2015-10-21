@@ -23,6 +23,7 @@ class Page(models.Model):
     text = RichTextField('text')
     url = models.URLField(blank=True)
     photo = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True)
+    photo_legend = models.CharField(max_length=128, blank=True)
     pdf = models.URLField(blank=True)
     date = models.DateTimeField(default=timezone.now)
     views = models.IntegerField(default=0)
