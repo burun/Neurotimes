@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'neuro',
     'ckeditor',
     'taggit',
+    'analytical',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -130,3 +131,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'ckeditor/uploads')
 CKEDITOR_JQUERY_URL = "js/jquery-2.1.4.min.js"
+
+# Tracking
+CLICKY_SITE_ID = '100891115'
+GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-69146342-1'
