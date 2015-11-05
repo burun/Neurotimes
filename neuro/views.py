@@ -16,7 +16,11 @@ def date(request):
 
 def page(request, date, id):
     page.output = Page.objects.get(category__date=date, id=id)
+    page_pre = Page.objects.get(id=str(int(id)-1))
+    page_next = Page.objects.get(id=str(int(id)+1))
     context_dict = {'page': page.output,
+                    'page_pre': page_pre,
+                    'page_next': page_next,
                     'category': page.output.category}
     return render(request, 'neuro/page.html', context_dict)
 

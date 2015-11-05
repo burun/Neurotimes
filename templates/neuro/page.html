@@ -82,6 +82,7 @@
                    {{page.text}}
                 {% endautoescape %}
                 </p>
+                <br />
 
                 <div class="row">
                     <div class="col-lg-12 label-toolbar">
@@ -91,6 +92,21 @@
                     </div>
                 </div>
                 <hr>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                    {% if page_pre %}
+                        <a href="/page/{{ page_pre.category.date_id }}/{{ page_pre.id }}/" class="btn btn-default" role="button"><i class="fa fa-chevron-left"> {{ page_pre.title }}</i></a>
+                    {% endif %}
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                    {% if page_next %}
+                        <a href="/page/{{ page_next.category.date_id }}/{{ page_next.id }}/" class="btn btn-default pull-right" role="button">{{ page_next.title }} <i class="fa fa-chevron-right"></i></a>
+                    {% endif %}
+                    </div>
+                </div>
+                <br />
+
                 <div>
                     <p>分享到</p>
                     <!-- sharethis tools -->
