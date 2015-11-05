@@ -16,8 +16,16 @@ def date(request):
 
 def page(request, date, id):
     page.output = Page.objects.get(category__date=date, id=id)
-    page_pre = Page.objects.get(id=str(int(id)-1))
-    page_next = Page.objects.get(id=str(int(id)+1))
+
+    try:
+        page_pre = Page.objects.get(id=str(int(id)-1))
+    except:
+        page_pre = {}
+
+    try:
+        page_next = Page.objects.get(id=str(int(id)+1))
+    except:
+        page_next = {}
     context_dict = {'page': page.output,
                     'page_pre': page_pre,
                     'page_next': page_next,
