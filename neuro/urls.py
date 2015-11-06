@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from neuro import views
+from neuro import views, feeds
 
 urlpatterns = patterns('',
                        url(r'^$', views.card, name='index'),
@@ -8,4 +8,5 @@ urlpatterns = patterns('',
                        url(r'^card/$', views.card, name='card'),
                        url(r'^about/$', views.about, name='about'),
                        url(r'^message/$', views.message, name='message'),
+                       url(r'^feed/', feeds.LatestPosts()),
                        )
