@@ -34,17 +34,3 @@ footer {
   .grid-sizer { width: 100%; }
   .grid-item { width: 100%; }
 }
-
-.child{
-    display:inline-block;
-}
-
-.parent{
-    white-space:nowrap;
-}
-
-.align-right{
-/*    margin-left:auto;
-    margin-right:0;*/
-    float: right;
-}
