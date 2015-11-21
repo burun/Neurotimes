@@ -16,7 +16,7 @@ class PageAdmin(admin.ModelAdmin):
         ('Views', {'fields': ['views']}),
         ('Likes', {'fields': ['likes']}),
     ]
-    list_display = ('title', 'category', 'url', 'get_tags', 'views', 'likes')
+    list_display = ('title', 'category', 'get_tags', 'views', 'likes')
 
     def get_tags(self, page):
         tags = []
@@ -25,5 +25,8 @@ class PageAdmin(admin.ModelAdmin):
         return ', '.join(tags)
 
 
-admin.site.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'date', 'date_id', 'views', 'likes')
+
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Page, PageAdmin)
