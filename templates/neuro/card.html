@@ -35,10 +35,10 @@
       <div class="container">
 
       <!--Alert-->
-      <div class="alert alert-info alert-dismissible">
+<!--       <div class="alert alert-info alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <strong>更新!</strong> 现在可以RSS订阅NeuroTimes啦！请点击 <strong><a title="订阅NeuroTimes RSS" target="_blank" href="http://www.neurotim.es/feed/">此处</strong></a> 或页面最下方 <i class="fa fa-rss fa-1x"></i> 图标订阅.
-      </div>
+      </div> -->
         <div class="row grid">
 
         <div class="grid-sizer"></div>
@@ -63,12 +63,11 @@
                         <a href="/page/{{ card.category.date_id }}/{{ card.id }}/">read more</a>
                     </p>
                   </div><!--/panel-text-->
-                  <div class="panel-date text-right">
-                    <p>
-                    {{ card.category.date_id }}
-                    </p>
-                  </div><!--/panel-date-->
                 </div><!--/panel-body-->
+
+                <div class="panel-footer">
+                  <div class="align-right child"><p>{{ card.category.date_id }}</p></div>
+                </div>
             </div><!--/panel-default-->
 
           </div>
