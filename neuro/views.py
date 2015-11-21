@@ -63,6 +63,7 @@ def message(request):
 def tag(request, tag):
     tag_list = Page.objects.filter(tags__name__in=[tag])
     context_dict = {'tags': tag_list,
+                    'tag_name': tag,
                     }
 
     return render(request, 'neuro/tags.html', context_dict)
