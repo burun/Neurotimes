@@ -9,4 +9,5 @@ urlpatterns = patterns('',
                        url(r'^about/$', views.about, name='about'),
                        url(r'^message/$', views.message, name='message'),
                        url(r'^feed/', feeds.LatestPosts()),
+                       url(r'^tags/(?P<tag>[\w\-]+)/$', views.tag, name='tag'),
                        )

@@ -58,3 +58,11 @@ def about(request):
 def message(request):
     context_dict = {}
     return render(request, 'neuro/message.html', context_dict)
+
+
+def tag(request, tag):
+    tag_list = Page.objects.filter(tags__name__in=[tag])
+    context_dict = {'tags': tag_list,
+                    }
+
+    return render(request, 'neuro/tags.html', context_dict)

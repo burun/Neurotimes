@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title_block %}
+tags | NeuroTimes
+{% endblock %}
+
+{% block nav_block %}
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/card">
+              <i class="fa fa-dashboard"></i> 神经信息
+            </a>
+          </li>
+          <li>
+            <a href="/date">
+              <i class="fa fa-building-o"></i> 往期回顾
+            </a>
+          </li>
+          <li>
+            <a href="/about">
+              <i class="fa fa-font"></i> 关于这里
+            </a>
+          </li>
+          <li>
+            <a href="/message">
+              <i class="fa fa-comment-o"></i> 留言板
+            </a>
+          </li>
+        </ul>
+      </div>
+{% endblock %}
+
+{% block body_block %}
+    <div class="row">
+      <div class="col-lg-2">
+      </div>
+
+      <div class="col-lg-8">
+        {% for tag in tags %}
+              <h4><strong><a href="/page/{{ tag.category.date_id }}/{{ tag.id }}/">{{ tag.title }}</a></strong></h4>
+              <p>
+                  {% autoescape off %}
+                     {{tag.text|slice:":150"}}
+                  {% endautoescape %}
+                  <a href="/page/{{ tag.category.date_id }}/{{ tag.id }}/">read more</a>
+              </p>
+              {% for tag in tag.tags.all %}
+                 <a href="/tags/{{ tag.name }}"><span class="label label-info">{{ tag.name }}</span ></a>
+              {% endfor %}
+              <br />
+              <br />
+        {% endfor %}
+
+      </div>
+
+      <div class="col-lg-2">
+      </div>
+    </div><!--row-->
+{% endblock %}

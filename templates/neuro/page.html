@@ -87,7 +87,7 @@
                 <div class="row">
                     <div class="col-lg-12 label-toolbar">
                         {% for tag in page.tags.all %}
-                        <span class="label label-primary">{{ tag.name }}</span >
+                        <a href="/tags/{{ tag.name }}"><span class="label label-primary">{{ tag.name }}</span ></a>
                         {% endfor %}
                     </div>
                 </div>
