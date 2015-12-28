@@ -135,3 +135,10 @@ CKEDITOR_JQUERY_URL = "js/jquery-2.1.4.min.js"
 # Tracking
 CLICKY_SITE_ID = '100891115'
 GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-69146342-1'
+
+# Ckeditor config
+CKEDITOR_CONFIGS = {
+    "default": {
+        "removePlugins": "stylesheetparser",
+    }
+}
