@@ -67,3 +67,12 @@ def tag(request, tag):
                     }
 
     return render(request, 'neuro/tags.html', context_dict)
+
+
+# Generate daily summary page
+def daily(request, date):
+    page.output = Page.objects.filter(category__date=date).order_by('id')
+    context_dict = {'pages': page.output,
+                    'category_date': date,
+                    }
+    return render(request, 'neuro/daily.html', context_dict)

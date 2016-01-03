@@ -10,4 +10,5 @@ urlpatterns = patterns('',
                        url(r'^message/$', views.message, name='message'),
                        url(r'^feed/', feeds.LatestPosts()),
                        url(r'^tags/(?P<tag>[\w\-]+)/$', views.tag, name='tag'),
+                       url(r'^date/(?P<date>([0-9]{4}-[0-9]{2}-[0-9]{2}))/$', views.daily, name='daily'),
                        )
