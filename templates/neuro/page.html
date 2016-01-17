@@ -70,7 +70,7 @@
                 <!-- Preview Image -->
                 {% if page.photo %}
                 <a href={{ page.photo.url }} title={{ page.title }} data-gallery>
-                    <img src={{ page.photo.url }} class="img-responsive center-block">
+                    <img src={{ page.photo.url }} class="img-thumbnail img-responsive center-block" style="max-width: 600px;max-height: 400px;">
                 </a>
                     {% if page.photo_legend %}
                     <p class="text-center">Credits: {{ page.photo_legend }}</p>
@@ -134,7 +134,7 @@
             </div>
 
             <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
-            <div id="blueimp-gallery" class="blueimp-gallery">
+            <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-use-bootstrap-modal="false">
                 <!-- The container for the modal slides -->
                 <div class="slides"></div>
                 <!-- Controls for the borderless lightbox -->
@@ -153,6 +153,7 @@
                                 <h4 class="modal-title"></h4>
                             </div>
                             <div class="modal-body next"></div>
+                            <div class="modal-footer"></div>
                         </div>
                     </div>
                 </div>
