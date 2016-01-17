@@ -69,7 +69,9 @@
 
                 <!-- Preview Image -->
                 {% if page.photo %}
-                <img class="img-responsive center-block" src={{ page.photo.url }} alt="">
+                <a href={{ page.photo.url }} title={{ page.title }} data-gallery>
+                    <img src={{ page.photo.url }} class="img-responsive center-block">
+                </a>
                     {% if page.photo_legend %}
                     <p class="text-center">Credits: {{ page.photo_legend }}</p>
                     {% endif %}
@@ -116,7 +118,7 @@
                     <span class='st_pinterest_large' displayText='Pinterest'></span>
                 </div>
 
-            <div id="disqus_thread"></div>
+            <div id="disqus_thread">
             <script type="text/javascript">
                 /* * * CONFIGURATION VARIABLES * * */
                 var disqus_shortname = 'neurotimes';
@@ -129,6 +131,32 @@
                 })();
             </script>
             <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+
+            <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+            <div id="blueimp-gallery" class="blueimp-gallery">
+                <!-- The container for the modal slides -->
+                <div class="slides"></div>
+                <!-- Controls for the borderless lightbox -->
+                <h3 class="title"></h3>
+                <a class="prev">‹</a>
+                <a class="next">›</a>
+                <a class="close">×</a>
+                <a class="play-pause"></a>
+                <ol class="indicator"></ol>
+                <!-- The modal dialog, which will be used to wrap the lightbox content -->
+                <div class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title"></h4>
+                            </div>
+                            <div class="modal-body next"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             </div>
 
