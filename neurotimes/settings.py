@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'ckeditor',
     'taggit',
     'analytical',
+    'pure_pagination',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -141,4 +142,12 @@ CKEDITOR_CONFIGS = {
     "default": {
         "removePlugins": "stylesheetparser",
     }
+}
+
+# django-pure-pagination config
+PAGINATION_SETTINGS = {
+    'PAGE_RANGE_DISPLAYED': 10,
+    'MARGIN_PAGES_DISPLAYED': 2,
+
+    'SHOW_FIRST_PAGE_WHEN_INVALID': True,
 }

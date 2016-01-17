@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load i18n %}
 
 {% block nav_block %}
       <div class="navbar-collapse collapse">
@@ -42,7 +43,7 @@
         <div class="row grid">
 
         <div class="grid-sizer"></div>
-          {% for card in cards %}
+          {% for card in cards.object_list %}
           <div class="col-md-4 col-sm-6 grid-item">
 
             <div class="panel panel-default">
@@ -77,20 +78,11 @@
         </div>
       </div><!--/container-->
 
+
       <div class="container">
                 <div class="text-center">
-                  <div class="pagination">
-                      {% if cards.has_previous %}
-                          <a href="?page={{ cards.previous_page_number }}">上一页</a>
-                      {% endif %}
-
-                      <span class="current">
-                          第{{ cards.number }}页
-                      </span>
-
-                      {% if cards.has_next %}
-                          <a href="?page={{ cards.next_page_number }}">下一页</a>
-                      {% endif %}
+                  <div id="pagination">
+                      {{ cards.render }}
                   </div>
                 </div>
         </div>

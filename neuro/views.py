@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from neuro.models import Category, Page
 from datetime import datetime
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 
 
 def date(request):
@@ -36,7 +36,7 @@ def page(request, date, id):
 def card(request):
     page_list = Page.objects.order_by('-id')
     paginator = Paginator(page_list, 9)
-    page = request.GET.get('page')
+    page = request.GET.get('page', 1)
     try:
         cards = paginator.page(page)
     except PageNotAnInteger:
