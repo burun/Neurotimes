@@ -7,6 +7,17 @@ from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 def date(request):
     category_list = Category.objects.order_by('-date')
     page_list = Page.objects.order_by('-id')
+
+    paginator = Paginator(category_list, 12)
+    page = request.GET.get('page', 1)
+    try:
+        category_list = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        category_list = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        category_list = paginator.page(paginator.num_pages)
     context_dict = {'categories': category_list,
                     'pages': page_list,
                     }

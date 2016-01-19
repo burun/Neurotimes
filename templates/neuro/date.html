@@ -38,7 +38,7 @@
     <div class="row">
 
         <!--list details column-->
-        {% for category in categories %}
+        {% for category in categories.object_list %}
           <div class="col-sm-4 bootcards-cards">
             <div class="panel panel-default">
               <div class="panel-heading">
@@ -58,5 +58,13 @@
         {% endfor %}
 
     </div><!--row-->
+    <div class="text-center">
+      <div id="pagination">
+          {{ categories.render }}
+      </div>
+    </div>
+
   </div>
+
+
 {% endblock %}
