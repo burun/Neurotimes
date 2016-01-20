@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'taggit',
     'analytical',
     'pure_pagination',
+    'easy_thumbnails',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -150,4 +151,12 @@ PAGINATION_SETTINGS = {
     'MARGIN_PAGES_DISPLAYED': 2,
 
     'SHOW_FIRST_PAGE_WHEN_INVALID': True,
+}
+
+# predefined alias of Thumbnails
+THUMBNAIL_ALIASES = {
+    '': {
+        'avatar': {'size': (100, 100), 'crop': True},
+        'regular': {'crop': "scale" , 'size': (200, 0) },
+    },
 }
