@@ -53,7 +53,9 @@
                 <div class="panel-body">
                   {% if page.photo %}
                     <div class="panel-photo">
-                      <a href=""><img class="img-responsive center-block" src={{ page.photo.url }} alt=""></a>
+                    <a href={{ page.photo.url }} title={{ page.title }} data-gallery>
+                      <img src={{ page.photo.url }} class="img-thumbnail img-responsive center-block img-page">
+                    </a>
                     </div><!--/panel-photo-->
                   {% endif %}
                   <hr>
@@ -73,6 +75,32 @@
 
 
         {% endfor %}
+
+            <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+            <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-use-bootstrap-modal="false">
+                <!-- The container for the modal slides -->
+                <div class="slides"></div>
+                <!-- Controls for the borderless lightbox -->
+                <h3 class="title"></h3>
+                <a class="prev">‹</a>
+                <a class="next">›</a>
+                <a class="close">×</a>
+                <a class="play-pause"></a>
+                <ol class="indicator"></ol>
+                <!-- The modal dialog, which will be used to wrap the lightbox content -->
+                <div class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title"></h4>
+                            </div>
+                            <div class="modal-body next"></div>
+                            <div class="modal-footer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
       </div>
 

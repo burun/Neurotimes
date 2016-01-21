@@ -158,5 +158,6 @@ THUMBNAIL_ALIASES = {
     '': {
         'avatar': {'size': (100, 100), 'crop': True},
         'regular': {'crop': "scale" , 'size': (200, 0) },
+        'card': {'size': (300, 300), 'crop': True},
     },
 }

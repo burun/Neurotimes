@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load chinese_cut %}
+{% load thumbnail %}
 {% load i18n %}
 
 {% block nav_block %}
@@ -53,13 +55,13 @@
                 <div class="panel-body">
                   {% if card.photo %}
                     <div class="panel-photo">
-                      <a href="/page/{{ card.category.date_id }}/{{ card.id }}/"><img class="img-responsive center-block" src={{ card.photo.url }} alt=""></a>
+                      <a href="/page/{{ card.category.date_id }}/{{ card.id }}/"><img class="img-responsive center-block" src={{ card.photo|thumbnail_url:'card' }} alt=""></a>
                     </div><!--/panel-photo-->
                   {% endif %}
                   <div class="panel-text">
                     <p>
                         {% autoescape off %}
-                           {{card.text|slice:":100"}}
+                           {{card.text|chinese_cut:":100"}}
                         {% endautoescape %}
                         <a href="/page/{{ card.category.date_id }}/{{ card.id }}/">read more</a>
                     </p>
