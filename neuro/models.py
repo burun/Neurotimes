@@ -28,7 +28,6 @@ class Page(models.Model):
     date = models.DateTimeField(default=timezone.now)
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
-    video = models.CharField(max_length=256, blank=True)
     tags = TaggableManager()
 
     def __str__(self):
