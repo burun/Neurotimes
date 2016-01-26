@@ -84,10 +84,16 @@
                    {{page.text}}
                 {% endautoescape %}
                 </p>
-                <br />
+
+                {% if page.video %}
+                <div class="embed-responsive embed-responsive-16by9 text-center video">
+                    <iframe width="560" height="345" src="{{ page.video }}?rel=0" frameborder="0" allowfullscreen></iframe>
+                </div>
+                {% endif %}
 
                 <div class="row">
                     <div class="col-lg-12 label-toolbar">
+                        <br />
                         {% for tag in page.tags.all %}
                         <a href="/tags/{{ tag.name }}"><span class="label label-primary">{{ tag.name }}</span ></a>
                         {% endfor %}
