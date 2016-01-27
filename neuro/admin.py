@@ -12,7 +12,6 @@ class PageAdmin(admin.ModelAdmin):
         ('Photo', {'fields': ['photo']}),
         ('Credits', {'fields': ['photo_legend']}),
         ('PDF', {'fields': ['pdf']}),
-        ('Video', {'fields': ['video']}),
         ('tags', {'fields': ['tags']}),
         ('Views', {'fields': ['views']}),
         ('Likes', {'fields': ['likes']}),
