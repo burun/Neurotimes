@@ -54,7 +54,11 @@
                 <!-- Date/Time -->
                 <div class="row">
                     <div class="col-md-6">
-                        <p><span class="glyphicon glyphicon-time"></span> {{ category.date }}</p>
+                        {% if page.author %}
+                            <p><i class="fa fa-pencil-square-o"></i></span> {{ page.author }} &nbsp; | &nbsp; <i class="fa fa-calendar"></i></span> {{ category.date }} </p>
+                        {% else %}
+                            <i class="fa fa-calendar"></i></span> {{ category.date }} </p>
+                        {% endif %}
                     </div>
                     <div class="btn-toolbar pull-right">
                         {% if page.url %}

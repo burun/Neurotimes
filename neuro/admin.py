@@ -7,6 +7,7 @@ class PageAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['title']}),
         ('Category', {'fields': ['category']}),
+        ('Author', {'fields': ['author']}),
         ('Text', {'fields': ['text']}),
         ('URL', {'fields': ['url']}),
         ('Photo', {'fields': ['photo']}),
@@ -16,7 +17,7 @@ class PageAdmin(admin.ModelAdmin):
         ('Views', {'fields': ['views']}),
         ('Likes', {'fields': ['likes']}),
     ]
-    list_display = ('title', 'category', 'get_tags', 'views', 'likes')
+    list_display = ('title', 'category', 'author', 'get_tags', 'views', 'likes')
 
     def get_tags(self, page):
         tags = []
