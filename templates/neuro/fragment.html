@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load thumbnail %}
 
 {% block title_block %}
-{{ category_date }} | NeuroTimes
+NeuroTimes
 {% endblock %}
 
 {% block nav_block %}
@@ -14,7 +15,7 @@
               <i class="fa fa-dashboard"></i> 神经信息
             </a>
           </li>
-          <li>
+          <li class="active">
             <a href="/fragment">
               <i class="fa fa-puzzle-piece"></i> 记忆碎片
             </a>
@@ -40,46 +41,51 @@
 
 {% block body_block %}
     <div class="row">
-      <div class="col-lg-2">
+      <div class="col-lg-3 col-md-3 col-sm-2">
       </div>
 
-      <div class="col-lg-8">
+      <div class="col-lg-6 col-md-6 col-sm-8">
         <div class="page-header">
-          <h2>{{ category_date }} 内容汇总</h2>
+          <h2>###########</h2>
         </div>
-        {% for page in pages %}
+        {% for fragment in fragments %}
             <div class="panel panel-default">
-                <div class="panel-heading form-inline">
-                    <h4><a href="/page/{{ page.category.date_id }}/{{ page.id }}/">{{ page.title }}</a></h4>
-                    {% if page.url %}
-                        <a href="{{ page.url }}" class="btn btn-info" role="button"><i class="fa fa-link"></i></span>原文链接</a>
-                    {% endif %}
-                </div><!--/panel-heading-->
+
                 <div class="panel-body">
-                  {% if page.photo %}
-                    <div class="panel-photo">
-                    <a href={{ page.photo.url }} title={{ page.title }} data-gallery>
-                      <img src={{ page.photo.url }} class="img-thumbnail img-responsive center-block img-page">
-                    </a>
-                    </div><!--/panel-photo-->
-                  {% endif %}
-                  <hr>
                   <div class="panel-text">
                     {% autoescape off %}
-                       {{page.text}}
+                       {{ fragment.text }}
                     {% endautoescape %}
                   </div><!--/panel-text-->
+                  {% if fragment_images %}
+                    <div class="panel-photo">
+                      {% for fragment_image in fragment_images %}
+                          {% if fragment_image.fragment == fragment %}
+                              <div class="col-lg-4 col-md-4">
+                                <a href={{ fragment_image.image.url }} title={{ fragment.title }} data-gallery>
+                                <img src={{ fragment_image.image|thumbnail_url:'card' }} class="img-responsive center-block">
+                                </a>
+                              </div>
+                          {% endif %}
+                      {% endfor %}
+                    </div><!--/panel-photo-->
+                  {% endif %}
+
                 </div><!--/panel-body-->
 
                 <div class="panel-footer">
-                  {% for tag in page.tags.all %}
-                  <a href="/tags/{{ tag.name }}"><span class="label label-primary">{{ tag.name }}</span ></a>
-                  {% endfor %}
+                  <div class="col-lg-6 col-xs-6">
+                   <p><i class="fa fa-calendar"></i></span> {{ fragment.date }} </p>
+                  </div>
+                  <div class="col-lg-6 col-xs-6">
+                    <div class="pull-right">
+                      {% for tag in fragment.tags.all %}
+                      <a href=""><span class="label label-primary">{{ tag.name }}</span ></a>
+                      {% endfor %}
+                    </div>
+                  </div>
                 </div>
             </div><!--/panel-default-->
-
-
-        {% endfor %}
 
             <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
             <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-use-bootstrap-modal="false">
@@ -107,9 +113,12 @@
                 </div>
             </div>
 
+
+        {% endfor %}
+
       </div>
 
-      <div class="col-lg-2">
+      <div class="col-lg-3 col-md-3 col-sm-2">
       </div>
     </div><!--row-->
 {% endblock %}

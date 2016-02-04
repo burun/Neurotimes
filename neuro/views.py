@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from neuro.models import Category, Page
+from neuro.models import Category, Page, Fragment, FragmentImage
 from datetime import datetime
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 
@@ -87,3 +87,13 @@ def daily(request, date):
                     'category_date': date,
                     }
     return render(request, 'neuro/daily.html', context_dict)
+
+
+def fragment(request):
+    fragment_list = Fragment.objects.order_by('-id')
+    fragment_image = FragmentImage.objects.order_by('-id')
+    context_dict = {'fragments': fragment_list,
+                    'fragment_images': fragment_image,
+                    }
+
+    return render(request, 'neuro/fragment.html', context_dict)
