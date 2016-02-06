@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load thumbnail %}
 
 {% block title_block %}
 {{ category_date }} | NeuroTimes
@@ -49,11 +50,11 @@
         </div>
         {% for page in pages %}
             <div class="panel panel-default">
-                <div class="panel-heading form-inline">
-                    <h4><a href="/page/{{ page.category.date_id }}/{{ page.id }}/">{{ page.title }}</a></h4>
-                    {% if page.url %}
-                        <a href="{{ page.url }}" class="btn btn-info" role="button"><i class="fa fa-link"></i></span>原文链接</a>
-                    {% endif %}
+                <div class="panel-heading">
+                   <h4><a href="/page/{{ page.category.date_id }}/{{ page.id }}/">{{ page.title }}</a></h4>
+                      {% if page.url %}
+                      <a href="{{ page.url }}" class="btn btn-info" role="button"><i class="fa fa-link"></i></span>原文链接</a>
+                      {% endif %}
                 </div><!--/panel-heading-->
                 <div class="panel-body">
                   {% if page.photo %}
@@ -77,8 +78,44 @@
                   {% endfor %}
                 </div>
             </div><!--/panel-default-->
+        {% endfor %}
 
+        {% for fragment in fragments %}
+            <div class="panel panel-default">
 
+                <div class="panel-body">
+                  <div class="panel-text">
+                    {% autoescape off %}
+                       {{ fragment.text }}
+                    {% endautoescape %}
+                  </div><!--/panel-text-->
+                  {% if fragment.images.all %}
+                    <div class="panel-photo">
+                      {% for fragment_image in fragment.images.all %}
+                        <div class="col-lg-4 col-md-4">
+                          <a href={{ fragment_image.image.url }} title={{ fragment.title }} data-gallery>
+                          <img src={{ fragment_image.image|thumbnail_url:'daily' }} class="img-responsive center-block">
+                          </a>
+                        </div>
+                      {% endfor %}
+                    </div><!--/panel-photo-->
+                  {% endif %}
+
+                </div><!--/panel-body-->
+
+                <div class="panel-footer">
+                  <div class="col-lg-6 col-xs-6">
+                   <p><i class="fa fa-calendar"></i></span> {{ fragment.date }} </p>
+                  </div>
+                  <div class="col-lg-6 col-xs-6">
+                    <div class="pull-right">
+                      {% for tag in fragment.tags.all %}
+                      <span class="label label-primary">{{ tag.name }}</span >
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+            </div><!--/panel-default-->
         {% endfor %}
 
             <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
