@@ -83,7 +83,9 @@ def tag(request, tag):
 # Generate daily summary page
 def daily(request, date):
     page.output = Page.objects.filter(category__date=date).order_by('id')
+    fragment.output = Fragment.objects.filter(category__date=date).order_by('id')
     context_dict = {'pages': page.output,
+                    'fragments': fragment.output,
                     'category_date': date,
                     }
     return render(request, 'neuro/daily.html', context_dict)
@@ -91,9 +93,7 @@ def daily(request, date):
 
 def fragment(request):
     fragment_list = Fragment.objects.order_by('-id')
-    fragment_image = FragmentImage.objects.order_by('-id')
     context_dict = {'fragments': fragment_list,
-                    'fragment_images': fragment_image,
                     }
 
     return render(request, 'neuro/fragment.html', context_dict)

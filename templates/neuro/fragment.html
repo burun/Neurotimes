@@ -57,16 +57,14 @@
                        {{ fragment.text }}
                     {% endautoescape %}
                   </div><!--/panel-text-->
-                  {% if fragment_images %}
-                    <div class="panel-photo">
-                      {% for fragment_image in fragment_images %}
-                          {% if fragment_image.fragment == fragment %}
-                              <div class="col-lg-4 col-md-4">
-                                <a href={{ fragment_image.image.url }} title={{ fragment.title }} data-gallery>
-                                <img src={{ fragment_image.image|thumbnail_url:'card' }} class="img-responsive center-block">
-                                </a>
-                              </div>
-                          {% endif %}
+                  {% if fragment.images.all %}
+                    <div class="row panel-photo">
+                      {% for fragment_image in fragment.images.all %}
+                        <div class="col-md-4 col-sm-6">
+                          <a href={{ fragment_image.image.url }} title={{ fragment.title }} data-gallery>
+                          <img src={{ fragment_image.image|thumbnail_url:'card' }} class="img-responsive center-block">
+                          </a>
+                        </div>
                       {% endfor %}
                     </div><!--/panel-photo-->
                   {% endif %}
@@ -80,7 +78,7 @@
                   <div class="col-lg-6 col-xs-6">
                     <div class="pull-right">
                       {% for tag in fragment.tags.all %}
-                      <a href=""><span class="label label-primary">{{ tag.name }}</span ></a>
+                      <span class="label label-primary">{{ tag.name }}</span >
                       {% endfor %}
                     </div>
                   </div>
