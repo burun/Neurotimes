@@ -75,7 +75,7 @@
         <p><a href="http://neurotim.es">© 2014-2015 NeuroTimes</a></p>
         <div class="info-icons">
           <a title="关注NeuroTimes微博" target="_blank" href="http://weibo.com/u/5722723325"><i class="fa fa-weibo fa-2x"></i></a>
-          <a title="关注NeuroTimes微信公众号" target="_blank"><i class="fa fa-weixin fa-2x"></i></a>
+          <a title="关注NeuroTimes微信公众号" id="popover" rel="popover" data-content=""><i class="fa fa-weixin fa-2x"></i></a>
           <a title="关注NeuroTimes Facebook页面" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
           <a title="关注NeuroTimes Twitter" target="_blank" href="https://twitter.com/NeuroTimes"><i class="fa fa-twitter fa-2x"></i></a>
           <a title="关注NeuroTimes Pinterest" target="_blank"><i class="fa fa-pinterest-p fa-2x"></i></a>
@@ -131,6 +131,12 @@
 
     ga('create', 'UA-69146342-1', 'auto');
     ga('send', 'pageview');
+    </script>
+
+    <!-- Show wechat -->
+    <script>
+    var image = '<img src="/media/img/qrcode.png">';
+    $('#popover').popover({trigger: "hover", content: image, html: true});
     </script>
 
     {% analytical_body_bottom %}
