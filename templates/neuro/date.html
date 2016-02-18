@@ -50,13 +50,26 @@
                 <h3 class="panel-title"><a href="/date/{{ category.date_id }}/">{{ category.name }}</a></h3>
               </div>
               <div class="list-group">
-                  {% for page in pages %}
-                      {% if page.category == category %}
-                          <div class="list-group-item">
-                            <h5 class="list-group-item-heading"><a href="/page/{{ category.date_id }}/{{ page.id }}/">{{ page.title }}</a></h5>
-                          </div>
-                      {% endif %}
+                  {% for page in category.pages.all %}
+                    <div class="list-group-item">
+                      <h5 class="list-group-item-heading"><a href="/page/{{ category.date_id }}/{{ page.id }}/">{{ page.title }}</a></h5>
+                    </div>
                   {% endfor %}
+                  {% if category.pages.all.count = 4 %}
+                    <div class="list-group-item"><h5></h5></div>
+                  {% elif category.pages.all.count = 3 %}
+                    {% for i in "12" %}
+                      <div class="list-group-item"><h5></h5></div>
+                    {% endfor %}
+                  {% elif category.pages.all.count = 2 %}
+                    {% for i in "123" %}
+                      <div class="list-group-item"><h5></h5></div>
+                    {% endfor %}
+                  {% elif category.pages.all.count = 1 %}
+                    {% for i in "1234" %}
+                      <div class="list-group-item"><h5></h5></div>
+                    {% endfor %}
+                  {% endif %}
               </div>
             </div><!--end rich text card-->
           </div><!--list-details-->

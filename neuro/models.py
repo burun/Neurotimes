@@ -18,7 +18,7 @@ class Category(models.Model):
 
 
 class Page(models.Model):
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category, related_name='pages')
     title = models.CharField(max_length=128, unique=True)
     text = RichTextField('text')
     url = models.URLField(blank=True)
