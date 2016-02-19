@@ -56,18 +56,26 @@
                     </div>
                   {% endfor %}
                   {% if category.pages.all.count = 4 %}
-                    <div class="list-group-item"><h5></h5></div>
+                    <div class="list-group-item">
+                      <h5 class="list-group-item-heading" style="color: white">&nbsp;</h5>
+                    </div>
                   {% elif category.pages.all.count = 3 %}
                     {% for i in "12" %}
-                      <div class="list-group-item"><h5></h5></div>
+                    <div class="list-group-item">
+                      <h5 class="list-group-item-heading" style="color: white">&nbsp;</h5>
+                    </div>
                     {% endfor %}
                   {% elif category.pages.all.count = 2 %}
                     {% for i in "123" %}
-                      <div class="list-group-item"><h5></h5></div>
+                    <div class="list-group-item">
+                      <h5 class="list-group-item-heading" style="color: white">&nbsp;</h5>
+                    </div>
                     {% endfor %}
                   {% elif category.pages.all.count = 1 %}
                     {% for i in "1234" %}
-                      <div class="list-group-item"><h5></h5></div>
+                    <div class="list-group-item">
+                      <h5 class="list-group-item-heading" style="color: white">&nbsp;</h5>
+                    </div>
                     {% endfor %}
                   {% endif %}
               </div>
