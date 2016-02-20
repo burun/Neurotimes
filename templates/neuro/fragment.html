@@ -44,12 +44,12 @@
       <div class="col-lg-3 col-md-3 col-sm-2">
       </div>
 
-      <div class="col-lg-6 col-md-6 col-sm-8">
+      <div class="col-lg-6 col-md-6 col-sm-8 scroll">
         <div class="page-header">
           <h3>新鲜、有趣、脑洞、艺术，关于脑科学的一切</h3>
         </div>
         {% for fragment in fragments %}
-            <div class="panel panel-default">
+            <div class="panel panel-default item">
 
                 <div class="panel-body">
                   <div class="panel-text">
@@ -114,9 +114,28 @@
 
         {% endfor %}
 
+
+        <div class="pagination">
+<!--             <span class="step-links">
+                {% if fragments.has_previous %}
+                    <a href="?page={{ fragments.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ fragments.number }} of {{ fragments.paginator.num_pages }}.
+                </span> -->
+
+                {% if fragments.has_next %}
+                    <a href="?page={{ fragments.next_page_number }}">next</a>
+                {% endif %}
+<!--             </span> -->
+        </div>
+
       </div>
 
       <div class="col-lg-3 col-md-3 col-sm-2">
       </div>
     </div><!--row-->
+
 {% endblock %}
+
