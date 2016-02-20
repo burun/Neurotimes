@@ -2,8 +2,6 @@ from django.shortcuts import render
 from neuro.models import Category, Page, Fragment, FragmentImage
 from datetime import datetime
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.http import Http404
 
 
 def date(request):
@@ -95,20 +93,7 @@ def daily(request, date):
 
 def fragment(request):
     fragment_list = Fragment.objects.order_by('-id')
-    paginator = Paginator(fragment_list, 3)
-    page = request.GET.get('page')
-
-    try:
-        fragments = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        fragments = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        raise Http404('<h1>Page not found</h1>')
-
-
-    context_dict = {'fragments': fragments,
+    context_dict = {'fragments': fragment_list,
                     }
 
     return render(request, 'neuro/fragment.html', context_dict)
