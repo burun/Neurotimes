@@ -6,6 +6,7 @@
   <head>
     {% analytical_head_top %}
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"> <!-- Infinite-scroll in mobile -->
     <title>{% block title_block %}NeuroTimes: 脑科学时代的科技与人文{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -101,6 +102,9 @@
     <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
     <script src="{% static 'js/bootstrap-image-gallery.min.js' %}"></script>
 
+    <!-- Infinite Scroll -->
+    <script src="{% static 'js/jquery.infinitescroll.min.js' %}"></script>
+
     <!-- sharethis tools -->
     <script type="text/javascript">var switchTo5x=true;</script>
     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
@@ -131,12 +135,6 @@
 
     ga('create', 'UA-69146342-1', 'auto');
     ga('send', 'pageview');
-    </script>
-
-    <!-- Show wechat -->
-    <script>
-    var image = '<img src="/media/img/qrcode.png">';
-    $('#popover').popover({trigger: "hover", content: image, html: true});
     </script>
 
     {% analytical_body_bottom %}

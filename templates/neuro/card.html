@@ -90,8 +90,20 @@
 
       <div class="container">
                 <div class="text-center">
-                  <div id="pagination">
-                      {{ cards.render }}
+                  <div class="pagination">
+                      <span class="step-links">
+                          {% if cards.has_previous %}
+                              <a href="?page={{ cards.previous_page_number }}">上一页 </a>
+                          {% endif %}
+
+                          <span class="current">
+                              第 {{ cards.number }}/{{ cards.paginator.num_pages }} 页
+                          </span>
+
+                          {% if cards.has_next %}
+                              <a href="?page={{ cards.next_page_number }}"> 下一页</a>
+                          {% endif %}
+                      </span>
                   </div>
                 </div>
         </div>

@@ -85,9 +85,21 @@
 
     </div><!--row-->
     <div class="text-center">
-      <div id="pagination">
-          {{ categories.render }}
-      </div>
+        <div class="pagination">
+            <span class="step-links">
+                {% if categories.has_previous %}
+                    <a href="?page={{ categories.previous_page_number }}">上一页</a>
+                {% endif %}
+
+                <span class="current">
+                    第 {{ categories.number }}/{{ categories.paginator.num_pages }} 页
+                </span>
+
+                {% if categories.has_next %}
+                    <a href="?page={{ categories.next_page_number }}">下一页</a>
+                {% endif %}
+            </span>
+        </div>
     </div>
 
   </div>
