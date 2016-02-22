@@ -16,8 +16,8 @@ $(document).ready(function() {
     bufferPx: 5,
     extraScrollPx: 100,
     loading: {
-        msgText: '<p>正在加载...</p>',
-        finishedMsg: '没有更多内容了',
+        msgText: '',
+        finishedMsg: $('<div style="text-align: center">没有更多内容了</div>'),
         img: '/media/img/ajax-loader.gif',
     },
     },
